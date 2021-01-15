@@ -1,0 +1,123 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion config.compileVersion
+    buildToolsVersion config.buildToolsVersion
+
+
+    defaultConfig {
+        minSdkVersion config.minVersion
+        targetSdkVersion config.targetVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    signingConfigs {
+        /*debug {
+            storeFile file("./cbds.jks")
+            storePassword "cbds123456"
+            keyAlias "key0"
+            keyPassword "cbds123456"
+        }*/
+        release {
+            storeFile file("./cbds.jks")
+            storePassword "cbds123456"
+            keyAlias "key0"
+            keyPassword "cbds123456"
+        }
+    }
+
+    buildTypes {
+        /*debug {
+            minifyEnabled false
+            *//*zipAlignEnabled true
+            shrinkResources true*//*
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }*/
+        release {
+            minifyEnabled false
+            /*zipAlignEnabled true
+            shrinkResources true*/
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions 'default'
+    productFlavors {
+        DEVELOP {
+            dimension 'default'
+            applicationId versions.appIdDevelop
+            versionName versions.versionNameDevelop
+            versionCode versions.versionCodeDevelop
+            manifestPlaceholders = [appName: versions.versionNameDevelop, qqappid: "761048783"]
+        }
+        ALPHA {
+            dimension 'default'
+            applicationId versions.appIdAlpha
+            versionName versions.versionNameAlpha
+            versionCode versions.versionCodeAlpha
+            /*buildConfigField 'String', 'API_SERVER_URL', libc.http_apiServerUrlAlpha
+            buildConfigField 'String', 'API_SERVER_UPLOAD', libc.http_apiServerUploadAlpha
+            buildConfigField 'String', 'API_SERVER_GOODS', libc.http_apiGoodsAlpha
+            buildConfigField 'int', 'API_TIME_OUT', config.apiTimeOutRelease*/
+            manifestPlaceholders = [appName: versions.versionNameAlpha, qqappid: "761048783"]
+        }
+        RELEASE {
+            dimension 'default'
+            applicationId versions.appIdRelease
+            versionName versions.versionNameRelease
+            versionCode versions.versionCodeRelease
+            /*buildConfigField 'String', 'API_SERVER_URL', libc.http_apiServerUrlRelease
+            buildConfigField 'String', 'API_SERVER_UPLOAD', libc.http_apiServerUploadRelease
+            buildConfigField 'String', 'API_SERVER_GOODS', libc.http_apiGoodsRelease
+            buildConfigField 'int', 'API_TIME_OUT', config.apiTimeOutRelease*/
+            manifestPlaceholders = [appName: versions.versionNameRelease, qqappid: "761048783"]
+        }
+    }
+}
+
+
+dependencies {
+
+    // 替换成最新版本, 需要注意的是api
+    // 要与compiler匹配使用，均使用最新版可以保证兼容
+    api 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    implementation project(':module_base')
+    implementation project(':lib_http')
+
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$androidc.x_core_ktx"
+    implementation "androidx.appcompat:appcompat:$androidc.x_appcompat"
+    implementation "com.google.android.material:material:$androidc.x_material"
+    implementation "androidx.constraintlayout:constraintlayout:$androidc.x_constraint_layout"
+    testImplementation "junit:junit:$androidc.x_junit"
+    androidTestImplementation "androidx.test.ext:$androidc.x_ext_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidc.x_espresso_core"
+}

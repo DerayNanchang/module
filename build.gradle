@@ -1,0 +1,123 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+//  项目常规配置信息
+ext.config = [
+        // 基础配置信息
+        'compileVersion'   : 29,
+        'buildToolsVersion': "28.0.3",
+        'minVersion'       : 21,
+        'targetVersion'    : 27,
+]
+
+
+// 项目常用组件配置信息
+ext.libc = [
+        // bugRep 崩溃日志上传(我这里使用的是Bugly)
+        'rep_buglyKey'               : '"注册时申请的APPID"', // bugly 注册时申请的APPID
+
+        // db   数据库相关
+        'db_name'                    : '"lsn_db"',
+        'db_greenDaoCode'            : 1,
+
+        // http 相关
+        'http_isSSL'                 : 'false',       // 是否配置SSL
+        'http_isConnActFalse'        : 'false',       // 不与与activity建立联系(当Activity 退出是就终止请求)
+        'http_isConnActTrue'         : 'true',        // 与activity建立联系(当Activity 退出是就终止请求)
+        'http_connectTimeout'        : '1000',        // 连接时间设置
+        'http_readTimeout'           : '1000',        // 读取时间设置
+        'http_writeTimeout'          : '1000',        // 写入时间设置
+        'http_failedService'         : '-1',          // 请求成功，但是返回失败
+        'http_failedConnect'         : '-2',          // 请求失败
+        'http_versionName'           : '"1.4.4"',
+        'http_apiGoodsDevelop'       : '"配置开发版URL"',
+        'http_apiServerUrlDevelop'   : '"https://test.api.caibinshenghuo.com/"', // 测试地址
+        'http_apiServerUploadDevelop': '"https://upload.caibinshenghuo.com/"',
+        'http_apiGoodsAlpha'         : '"https://mall.caibinshenghuo.com/"',
+        'http_apiServerUrlAlpha'     : '"https://app.caibinshenghuo.com/"',
+        'http_apiServerUploadAlpha'  : '"https://upload.caibinshenghuo.com/"',
+        'http_apiGoodsRelease'       : '"https://mall.caibinshenghuo.com/"',
+        'http_apiServerUrlRelease'   : '"https://app.caibinshenghuo.com/"',
+        'http_apiServerUploadRelease': '"https://upload.caibinshenghuo.com/"',
+
+        //share 分享相关
+        'share_UMAppID'              : '"UMAppID"',             // 友盟分享APP ID
+        'share_WXAppID'              : '"WXAppID"',             // 微信APP ID
+        'share_WXAppSecret'          : '"WXAppSecret"',         // 微信AppSecret
+        'share_QQAppID'              : '"QQAppID"',             // QQ APP ID
+        'share_QQAppSecret'          : '"QQAppSecret"',         // 微信AppSecret
+        'share_WXWorkAppID'          : '"WXWorkAppID"',         // 企业微信AppID
+        'share_WXWorkAppSecret'      : '"WXWorkAppSecret"',     // 企业微信AppSecret
+        'share_SinaWeiboAppID'       : '"SinaWeiboAppID"',      // 新浪微博AppID
+        'share_SinaWeiboAppSecret'   : '"SinaWeiboAppSecret"',  // 新浪微博AppSecret
+        'share_DingAppID'            : '"DingAppID"',           // 钉钉AppID
+        'share_AlipayAppID'          : '"AlipayAppID"',         // 支付宝AppID
+
+
+]
+
+
+// 项目默认初始化配置信息
+ext.androidc = [
+        'x_core_ktx'         : '1.2.0',
+        'x_appcompat'        : '1.1.0',
+        'x_material'         : '1.1.0',
+        'x_constraint_layout': '1.1.3',
+        'x_junit'            : '4.+',
+        'x_ext_junit'        : '1.1.1',
+        'x_espresso_core'    : '3.2.0',
+]
+
+// 项目版本控制信息
+ext.versions = [
+        // 开发板
+        'appNameDevelop'    : 'Develop',
+        'appIdDevelop'      : 'com.lsener.module',
+        'versionCodeDevelop': 2020091401,
+        'versionNameDevelop': 'DEVELOP_A_R202009141T02',
+
+        // 测试版
+        'appNameAlpha'      : 'Alpha',
+        'appIdAlpha'        : 'com.lsener.module',
+        'versionCodeAlpha'  : 2020091401,
+        'versionNameAlpha'  : '1.4.33',
+
+        // 发布版
+        'appNameRelease'    : 'Release',
+        'appIdRelease'      : 'com.dmooo.cbds',
+        'versionCodeRelease': 2020091401,
+        'versionNameRelease': '1.4.33',
+]
+
+
+allprojects {
+    repositories {
+        // 添加下面的内容 aliPay
+        flatDir {
+            dirs 'libs'
+        }
+
+        google()
+        jcenter()
+        maven { url "https://oss.jfrog.org/libs-snapshot" }
+        // 友盟分享
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+buildscript {
+    ext.kotlin_version = "1.3.72"
+    repositories {
+        google()
+        jcenter()
+        mavenCentral() // add repository
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin
+    }
+}

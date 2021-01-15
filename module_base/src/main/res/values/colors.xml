@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme_color">#FF000000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+
+
+
+    <color name="colorPrimary">@color/FA5C55</color>
+    <color name="colorPrimaryDark">@color/white</color>
+    <color name="colorAccent">@color/FA5C55</color>
+
+
+    <color name="topic">#627984</color>
+    <color name="T_4D">#4D4D4D</color>
+    <color name="map_circle_color">#F3D7E0</color>
+    <color name="main_radio_bg">#DCDCDC</color>
+    <color name="white">#ffffff</color>
+    <color name="X000">#000000</color>
+    <color name="bg_gray">#E2E2E2</color>
+    <color name="bg_F8">#F8F8F8</color>
+    <color name="T_FF">#ffffff</color>
+    <color name="gray">#D1D1D1</color>
+    <color name="cicle_comment_bg">#EFEFEF</color>
+    <color name="main_txt_color">#323232</color>
+    <color name="color_acacac">#acacac</color>
+    <color name="color_pass">#ff39eb4e</color>
+    <color name="line">#f2f2f2</color>
+    <color name="transparent">#00000000</color>
+    <color name="circle_counts">#989898</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_CCCCCC">#CCCCCC</color>
+    <color name="color_F7F7F7">#F7F7F7</color>
+    <color name="color_323232">#323232</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_FF0137">#FF0137</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_363232">#363232</color>
+    <color name="color_AE007A">#AE007A</color>
+    <color name="color_E30048">#E30048</color>
+    <color name="color_BBAE007A">#BBAE007A</color>
+    <color name="color_BBE30048">#BBE30048</color>
+    <color name="color_FFECF3">#FFECF3</color>
+    <color name="color_D40056">#D40056</color>
+    <color name="color_DA2E6B">#DA2E6B</color>
+    <color name="color_e03e77">#e03e77</color>
+    <color name="color_FFF08B">#fffff08b</color>
+    <color name="color_E1004A">#E1004A</color>
+    <color name="color_BBE1004A">#BBE1004A</color>
+    <color name="color_FF96BA">#FF96BA</color>
+    <color name="color_f2f2f2">#f2f2f2</color>
+    <color name="controller_bg_dark">#66000000</color>
+    <color name="controller_bg_light">#00000000</color>
+    <color name="FF5742">#FF5742</color>
+    <color name="FA5C55">#FA5C55</color>
+    <color name="FBFBFB">#FBFBFB</color>
+    <color name="F5F5F5">#F5F5F5</color>
+    <color name="FB6031">#FB6031</color>
+    <color name="F5F5FA" >#F5F5FA</color>
+    <color name="F65D6C4">#65D6C4</color>
+    <color name="bottomLineColor2">#AAAAAA</color>
+    <color name="tabBackground">#777D7D7D</color>
+
+    <color name="X33312E">#33312E</color>
+    <color name="X99948A">#99948A</color>
+    <color name="X66635C">#66635C</color>
+
+
+    <color name="t0000">#00000000</color>
+    <color name="messageCenterItemColor">#F2F1F1</color>
+    <color name="triangle">#aa72d572</color>
+    <color name="circle">#aa738ffe</color>
+    <color name="rect">#aae84e40</color>
+
+    <color name="t58">#585858</color>
+    <color name="c3">#c3c3c3</color>
+    <color name="X5581FA">#5581FA</color>
+
+</resources>
